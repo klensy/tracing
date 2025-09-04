@@ -2986,7 +2986,7 @@ macro_rules! valueset {
         )
     };
 
-    // Remainder is unparsable, but exists --- must be format args!
+    // Remainder is unparseable, but exists --- must be format args!
     (@ { $(,)* $($out:expr),* }, $next:expr, $($rest:tt)+) => {
         $crate::valueset!(@ { (&$next, $crate::__macro_support::Option::Some(&$crate::__macro_support::format_args!($($rest)+) as &dyn Value)), $($out),* }, $next, )
     };

@@ -866,7 +866,6 @@ impl FieldSet {
     ///
     /// [`Identifier`]: super::callsite::Identifier
     /// [`Callsite`]: super::callsite::Callsite
-    #[inline]
     pub(crate) fn callsite(&self) -> callsite::Identifier {
         callsite::Identifier(self.callsite.0)
     }
@@ -901,7 +900,6 @@ impl FieldSet {
     }
 
     /// Returns an iterator over the `Field`s in this `FieldSet`.
-    #[inline]
     pub fn iter(&self) -> Iter {
         let idxs = 0..self.len();
         Iter {
@@ -1002,7 +1000,6 @@ impl PartialEq for FieldSet {
 
 impl Iterator for Iter {
     type Item = Field;
-    #[inline]
     fn next(&mut self) -> Option<Field> {
         let i = self.idxs.next()?;
         Some(Field {
